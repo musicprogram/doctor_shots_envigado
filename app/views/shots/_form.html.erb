@@ -1,0 +1,55 @@
+<%= form_for(@shot) do |f| %>
+  <% if @shot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shot.errors.count, "error") %> prohibited this shot from being saved:</h2>
+
+      <ul>
+      <% @shot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.text_field :precio %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  
+  
+  <div id="milliliters">
+    <%= f.fields_for :milliliters do |milliliter| %>
+     <%= render 'milliliter_fields', f: milliliter %>
+    <% end %>     
+    <div class="links">
+      <%= link_to_add_association 'Agregar Licor', f, :milliliters %>
+
+    </div>
+     
+  </div>
+  
+  <div id="ingredients">
+    <%= f.fields_for :ingredients do |ingredient| %>
+     <%= render 'ingredient_fields', f: ingredient %>
+    <% end %>     
+    <div class="links">
+      <%= link_to_add_association 'Agregar Ingrediente', f, :ingredients %>
+
+    </div>
+     
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

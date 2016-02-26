@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @jar.nombre %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @jar.precio %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @jar.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_jar_path(@jar) %> |
+<%= link_to 'Back', jars_path %>

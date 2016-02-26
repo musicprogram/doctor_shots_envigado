@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @licor.nombre %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @licor.cantidad %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @licor.precio %>
+</p>
+
+<p>
+  <strong>Mililitros:</strong>
+  <%= @licor.mililitros %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @licor.valor %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @licor.categoria %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @licor.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_licor_path(@licor) %> |
+<%= link_to 'Back', licors_path %>

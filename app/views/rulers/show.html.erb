@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @ruler.nombre %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @ruler.precio %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @ruler.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_ruler_path(@ruler) %> |
+<%= link_to 'Back', rulers_path %>

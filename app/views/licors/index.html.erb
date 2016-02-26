@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Licors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Mililitros</th>
+      <th>Valor</th>
+      <th>Categoria</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @licors.each do |licor| %>
+      <tr>
+        <td><%= licor.nombre %></td>
+        <td><%= licor.cantidad %></td>
+        <td><%= licor.precio %></td>
+        <td><%= licor.mililitros %></td>
+        <td><%= licor.valor %></td>
+        <td><%= licor.categoria %></td>
+        <td><%= licor.descripcion %></td>
+        <td><%= link_to 'Show', licor %></td>
+        <td><%= link_to 'Edit', edit_licor_path(licor) %></td>
+        <td><%= link_to 'Destroy', licor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Licor', new_licor_path %>

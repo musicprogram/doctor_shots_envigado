@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @shot.nombre %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @shot.precio %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @shot.descripcion %>
+</p>
+
+<p>
+  <strong>Licores:</strong>
+  <% @shot.milliliters.each do |m| %>
+  
+    <%= m.licor %>
+    <%= m.mililitro %>
+    
+  <% end %>  
+</p>
+
+<p>
+  <strong>Ingredientes:</strong>
+  <% @shot.ingredients.each do |m| %>
+    <%= m.nombre %>
+  <% end %>  
+</p>
+
+
+
+<%= link_to 'Edit', edit_shot_path(@shot) %> |
+<%= link_to 'Back', shots_path %>
