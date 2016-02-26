@@ -16,11 +16,16 @@
 </p>
 
 <p>
+  <strong>Categoría:</strong>
+  <%= @shot.category.try(:name) %>
+</p>
+
+<p>
   <strong>Licores:</strong>
   <% @shot.milliliters.each do |m| %>
   
     <%= m.licor %>
-    <%= m.mililitro %>
+    <p><%= m.mililitro %> mililitros</p>
     
   <% end %>  
 </p>

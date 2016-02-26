@@ -24,6 +24,12 @@
     <%= f.text_area :descripcion %>
   </div>
   
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control",     prompt: "Seleccione Actividad" %>
+
+  </div>
+  
   
   <div id="milliliters">
     <%= f.fields_for :milliliters do |milliliter| %>

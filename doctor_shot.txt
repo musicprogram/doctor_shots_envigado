@@ -1,0 +1,174 @@
+SOFTWARE
+modulo "manejo de inventario"
+
+poder crear licor que tenga su valor y su cantidad en mililitros
+crear shots con su valor y cantidad en mililitros de varios licores
+crear cocktails con su valor y cantidad en mililitros de varios licores
+crear cerveza y michelada con su valor y cantidad en mililitros de varios licores
+crear jarras con su valor y cantidad en mililitros de varios licores, ingredientes
+
+crear cuenta por día, donde se agreguen los licores que se compraron(licor, cerveza, ingredientes) mas licores e ingredientes disponibles de días anteriores, cada vez que se agrega un trago, cocktail, shot, cerveza o jarra se va descontando de la cantidad global de la cuenta, segun cantidad de mililitros utilizados en la preparación del cocktail,... etc
+
+se podrá calcular el valor total por día, la disponibilidad de los licores, cantidad de ventas por producto,estadisticas de los mejores días, filtrar y busqueda de tragos o cocktails...etc, según su valor,ingredientes,licores,categoría
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+project = Shot
+task = milliliter
+
+
+
+
+
+
+Tablas
+
+ingredientes{
+	[Ingredient nombre valor:float descripcion:text]
+	nombre
+	descripción
+	valor
+}
+
+licor {
+	nombre
+	botella,litro,media,garrafa
+	precio
+	descripción
+	mililitros
+	imagen
+	categoría{}
+
+		shot {
+			nombre
+			precio
+			descripción		
+			mililitros{licor_id, mililitros}
+			imagen
+			categoría{}
+			ingredientes{}
+		}
+
+		cocktail {
+			nombre
+			precio
+			descripción		
+			mililitros{licor_id, mililitros}
+			imagen
+			categoría{}
+			ingredientes{}
+		}
+
+		jarra {
+			nombre
+			precio
+			descripción		
+			mililitros
+			imagen
+			categoría{}
+			ingredientes{}
+		}
+
+		regletas{
+			nombre
+			descripción
+			cantidad
+			precio
+			valor
+			categoría{}
+		}
+
+}
+
+cerveza{
+	nombre
+	precio
+	cantidad
+		michelada{
+			nombre
+			descripción
+			imagen
+			precio
+			ingredientes{}
+			licor{}
+		}
+}
+
+categoría{
+	nombre
+	imagen
+}
+
+
+
+
+
+1 litro = 1000 mililitros 
+1 vaso = 1 vaso de agua = 200 ml = 200 cc (cm3) = 2 decilitros
+1 vasito = 1 vaso de vino = 100 ml = 100 cc (cm3) = 1 decilitro
+1 copita (de licor) = 50 ml = 50 cc (cm3) = ½ decilitro
+
+
+
+modelo de datos
+
+	
+	Licors
+	  t.string :nombre
+	  t.string :cantidad
+	  t.float :precio
+	  t.float :mililitros
+	  t.float :valor
+	  t.string :categoria
+	  t.text :descripcion
+	  
+	Shots
+	 	t.string :nombre
+    t.float :precio
+    t.text :descripcion
+    
+    has_many :milliliters, has_many :ingredients
+    
+  Cocktails
+  	t.string :nombre
+    t.float :precio
+    t.text :descripcion
+    
+  Jars
+  	t.string :nombre
+    t.float :precio
+    t.text :descripcion
+    
+  Rulers
+  	t.string :nombre
+    t.float :precio
+    t.text :descripcion
+  
+  Categories
+    t.string :name
+
+  
+  --------------
+    
+  Milliliters 
+    t.string :licor
+    t.float :mililitro
+    t.belongs_to :shot, index: true, foreign_key: true
+    
+    
+  Ingredients 
+		t.string :nombre
+    t.belongs_to :shot, index: true, foreign_key: true  
+    

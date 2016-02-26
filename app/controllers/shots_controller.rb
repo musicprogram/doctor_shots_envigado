@@ -69,7 +69,7 @@ class ShotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shot_params
-      params.require(:shot).permit(:nombre, :precio, :descripcion, 
+      params.require(:shot).permit(:nombre, :precio, :descripcion, :category_id,
       milliliters_attributes: [:id, :licor, :mililitro, :_destroy], 
       ingredients_attributes: [:id, :nombre, :_destroy])
     end

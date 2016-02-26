@@ -4,7 +4,7 @@ class CreateShots < ActiveRecord::Migration
       t.string :nombre
       t.float :precio
       t.text :descripcion
-
+      t.belongs_to :category, index: true, foreign_key: true
       t.timestamps null: false
     end
   end
