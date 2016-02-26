@@ -158,6 +158,9 @@ modelo de datos
   
   Categories
     t.string :name
+    
+  Category_licors  
+    t.string :name
 
   
   --------------
@@ -166,7 +169,6 @@ modelo de datos
     t.string :licor
     t.float :mililitro
     t.belongs_to :shot, index: true, foreign_key: true
-    
     
   Ingredients 
 		t.string :nombre

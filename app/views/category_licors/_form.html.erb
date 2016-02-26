@@ -1,0 +1,21 @@
+<%= form_for(@category_licor) do |f| %>
+  <% if @category_licor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category_licor.errors.count, "error") %> prohibited this category_licor from being saved:</h2>
+
+      <ul>
+      <% @category_licor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

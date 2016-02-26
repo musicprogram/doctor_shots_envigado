@@ -6,8 +6,6 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Cantidad</th>
-      <th>Precio</th>
       <th>Mililitros</th>
       <th>Valor</th>
       <th>Categoria</th>
@@ -20,11 +18,9 @@
     <% @licors.each do |licor| %>
       <tr>
         <td><%= licor.nombre %></td>
-        <td><%= licor.cantidad %></td>
-        <td><%= licor.precio %></td>
         <td><%= licor.mililitros %></td>
         <td><%= licor.valor %></td>
-        <td><%= licor.categoria %></td>
+        <td><%= licor.category_licor.try(:nombre) %></td>
         <td><%= licor.descripcion %></td>
         <td><%= link_to 'Show', licor %></td>
         <td><%= link_to 'Edit', edit_licor_path(licor) %></td>

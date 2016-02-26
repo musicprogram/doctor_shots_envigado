@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Category Licors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category_licors.each do |category_licor| %>
+      <tr>
+        <td><%= category_licor.nombre %></td>
+        <td><%= link_to 'Show', category_licor %></td>
+        <td><%= link_to 'Edit', edit_category_licor_path(category_licor) %></td>
+        <td><%= link_to 'Destroy', category_licor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category licor', new_category_licor_path %>

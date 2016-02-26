@@ -69,6 +69,8 @@ class CocktailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cocktail_params
-      params.require(:cocktail).permit(:nombre, :precio, :descripcion)
+      params.require(:cocktail).permit(:nombre, :precio, :descripcion, :category_id,
+      milliliter_cocks_attributes: [:id, :licor_id, :mililitro,  :_destroy],
+      ingredient_cocks_attributes: [:id, :nombre,  :_destroy])
     end
 end

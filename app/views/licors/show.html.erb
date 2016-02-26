@@ -6,16 +6,6 @@
 </p>
 
 <p>
-  <strong>Cantidad:</strong>
-  <%= @licor.cantidad %>
-</p>
-
-<p>
-  <strong>Precio:</strong>
-  <%= @licor.precio %>
-</p>
-
-<p>
   <strong>Mililitros:</strong>
   <%= @licor.mililitros %>
 </p>
@@ -27,7 +17,7 @@
 
 <p>
   <strong>Categoria:</strong>
-  <%= @licor.categoria %>
+  <%= @licor.category_licor.try(:nombre) %>
 </p>
 
 <p>

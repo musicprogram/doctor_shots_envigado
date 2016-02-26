@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  licor_id: 
+  mililitro: 1.5
+  cocktail_id: 
+
+two:
+  licor_id: 
+  mililitro: 1.5
+  cocktail_id: 

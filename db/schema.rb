@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226175227) do
+ActiveRecord::Schema.define(version: 20160226215457) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_licors", force: :cascade do |t|
+    t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,9 +29,21 @@ ActiveRecord::Schema.define(version: 20160226175227) do
     t.string   "nombre"
     t.float    "precio"
     t.string   "descripcion"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "cocktails", ["category_id"], name: "index_cocktails_on_category_id"
+
+  create_table "ingredient_cocks", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "cocktail_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ingredient_cocks", ["cocktail_id"], name: "index_ingredient_cocks_on_cocktail_id"
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "nombre"
@@ -46,24 +64,36 @@ ActiveRecord::Schema.define(version: 20160226175227) do
 
   create_table "licors", force: :cascade do |t|
     t.string   "nombre"
-    t.string   "cantidad"
-    t.float    "precio"
     t.float    "mililitros"
     t.float    "valor"
-    t.string   "categoria"
+    t.integer  "category_licor_id"
     t.text     "descripcion"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "licors", ["category_licor_id"], name: "index_licors_on_category_licor_id"
+
+  create_table "milliliter_cocks", force: :cascade do |t|
+    t.integer  "licor_id"
+    t.float    "mililitro"
+    t.integer  "cocktail_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
+  add_index "milliliter_cocks", ["cocktail_id"], name: "index_milliliter_cocks_on_cocktail_id"
+  add_index "milliliter_cocks", ["licor_id"], name: "index_milliliter_cocks_on_licor_id"
+
   create_table "milliliters", force: :cascade do |t|
-    t.string   "licor"
+    t.integer  "licor_id"
     t.float    "mililitro"
     t.integer  "shot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "milliliters", ["licor_id"], name: "index_milliliters_on_licor_id"
   add_index "milliliters", ["shot_id"], name: "index_milliliters_on_shot_id"
 
   create_table "rulers", force: :cascade do |t|

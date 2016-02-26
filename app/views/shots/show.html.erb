@@ -21,11 +21,9 @@
 </p>
 
 <p>
-  <strong>Licores:</strong>
+  <strong>Licores</strong>
   <% @shot.milliliters.each do |m| %>
-  
-    <%= m.licor %>
-    <p><%= m.mililitro %> mililitros</p>
+  <p><b><%= m.licor.try(:nombre) %></b><%= m.mililitro %> ml</p>
     
   <% end %>  
 </p>

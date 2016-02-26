@@ -11,9 +11,29 @@
 </p>
 
 <p>
+  <strong>Category:</strong>
+  <%= @cocktail.category.try(:name) %>
+</p>
+
+<p>
+  <strong>Licores</strong>
+  <% @cocktail.milliliter_cocks.each do |m| %>
+    <%= m.licor.try(:nombre) %>
+    <%= m.mililitro %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Ingredientes</strong>
+  <% @cocktail.ingredient_cocks.each do |i| %>
+    <%= i.nombre %>
+  <% end %>
+</p>
+<p>
   <strong>Descripcion:</strong>
   <%= @cocktail.descripcion %>
 </p>
+
 
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %>

@@ -20,9 +20,36 @@
     <%= f.text_field :precio %>
   </div>
   <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control",     prompt: "Seleccione Categoría" %>
+
+  </div>
+  <div class="field">
     <%= f.label :descripcion %><br>
     <%= f.text_field :descripcion %>
   </div>
+  <div id="milliliter_cocks">
+    <%= f.fields_for :milliliter_cocks do |milliliter_cock| %>
+     <%= render 'milliliter_cock_fields', f: milliliter_cock %>
+    <% end %>     
+    <div class="links">
+      <%= link_to_add_association 'Agregar Licor', f, :milliliter_cocks %>
+
+    </div>
+     
+  </div>
+  
+  <div id="ingredient_cocks">
+    <%= f.fields_for :ingredient_cocks do |ingredient_cock| %>
+     <%= render 'ingredient_cock_fields', f: ingredient_cock %>
+    <% end %>     
+    <div class="links">
+      <%= link_to_add_association 'Agregar Ingrediente', f, :ingredient_cocks %>
+
+    </div>
+     
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

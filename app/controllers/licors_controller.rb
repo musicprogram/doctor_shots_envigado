@@ -69,6 +69,6 @@ class LicorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def licor_params
-      params.require(:licor).permit(:nombre, :cantidad, :precio, :mililitros, :valor, :categoria, :descripcion)
+      params.require(:licor).permit(:nombre, :mililitros, :valor, :category_licor_id, :descripcion)
     end
 end
