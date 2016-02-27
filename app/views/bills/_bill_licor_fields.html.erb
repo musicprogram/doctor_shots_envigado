@@ -1,0 +1,14 @@
+<div class="nested-fields">
+
+  <div class="field">
+    <%= f.label :licor %>
+    <%= f.collection_select :licor_id, Licor.all, :id, :nombre , class: "form-control",     prompt: "Seleccione Licor" %>
+  </div>
+  <%= f.label :cantidad %><br>
+  <%= f.text_field :cantidad %>
+   
+  <%= link_to_remove_association "Descartar Licor", f %>   
+</div>
+
+  
+  

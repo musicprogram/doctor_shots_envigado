@@ -1,0 +1,29 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+  <div id="bill_licors">
+    <%= f.fields_for :bill_licors do |bill_licor| %>
+     <%= render 'bill_licor_fields', f: bill_licor %>
+    <% end %>     
+    <div class="links">
+      <%= link_to_add_association 'Agregar Licor', f, :bill_licors %>
+
+    </div>
+     
+  </div>  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

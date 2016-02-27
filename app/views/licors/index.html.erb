@@ -19,7 +19,7 @@
       <tr>
         <td><%= licor.nombre %></td>
         <td><%= licor.mililitros %></td>
-        <td><%= licor.valor %></td>
+        <td>$ <%= licor.valor %></td>
         <td><%= licor.category_licor.try(:nombre) %></td>
         <td><%= licor.descripcion %></td>
         <td><%= link_to 'Show', licor %></td>

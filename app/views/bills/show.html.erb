@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Mililitros</th>
+      <th>Valor</th>
+      <th>Cantidad</th>
+      <th>Total Mililitros</th>
+      <th>Total Valor</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bill.bill_licors.each do |b| %>
+      <tr>
+        <td><%= b.licor.try(:nombre) %></td>
+        <td><%= b.licor.try(:mililitros) %></td>
+        <td><%= number_to_currency(b.licor.try(:valor), precision: 3) %></td>
+        <td><%= b.cantidad %></td>
+        <td><%= b.total_mili %></td>
+        <td><%= number_to_currency(b.total_valor, precision: 3) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

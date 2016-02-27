@@ -1,11 +1,12 @@
 SOFTWARE
 modulo "manejo de inventario"
 
-poder crear licor que tenga su valor y su cantidad en mililitros
-crear shots con su valor y cantidad en mililitros de varios licores
-crear cocktails con su valor y cantidad en mililitros de varios licores
+poder crear licor que tenga su valor y su cantidad en mililitros *
+crear shots con su valor y cantidad en mililitros de varios licores *
+crear cocktails con su valor y cantidad en mililitros de varios licores *
 crear cerveza y michelada con su valor y cantidad en mililitros de varios licores
 crear jarras con su valor y cantidad en mililitros de varios licores, ingredientes
+crear reglas con su valor y cantidad en mililitros de varios licores, ingredientes
 
 crear cuenta por día, donde se agreguen los licores que se compraron(licor, cerveza, ingredientes) mas licores e ingredientes disponibles de días anteriores, cada vez que se agrega un trago, cocktail, shot, cerveza o jarra se va descontando de la cantidad global de la cuenta, segun cantidad de mililitros utilizados en la preparación del cocktail,... etc
 

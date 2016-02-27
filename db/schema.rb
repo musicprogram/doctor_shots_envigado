@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226215457) do
+ActiveRecord::Schema.define(version: 20160226230921) do
+
+  create_table "bill_licors", force: :cascade do |t|
+    t.integer  "cantidad"
+    t.integer  "bill_id"
+    t.integer  "licor_id"
+    t.integer  "total_mili"
+    t.float    "total_valor"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bill_licors", ["bill_id"], name: "index_bill_licors_on_bill_id"
+  add_index "bill_licors", ["licor_id"], name: "index_bill_licors_on_licor_id"
+
+  create_table "bills", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -64,7 +82,7 @@ ActiveRecord::Schema.define(version: 20160226215457) do
 
   create_table "licors", force: :cascade do |t|
     t.string   "nombre"
-    t.float    "mililitros"
+    t.integer  "mililitros"
     t.float    "valor"
     t.integer  "category_licor_id"
     t.text     "descripcion"
